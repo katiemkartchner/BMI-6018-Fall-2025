@@ -148,29 +148,44 @@ print("4.g:", four_b)
 
 three_setA = {1, 2, 3, 4, 5}
 
+
+# Problem 5: More variable type changes. Continue from where you left off in Problem 4.
+
+three_setA = {1, 2, 3, 4, 5}
+
 # 5.a Manually create a dictionary where the values are items in the list from where 
 # we left in  problem 4, and the keys should be their index in the list. Print the dictionary.
- 
+#(Here I assumed that 8 would be the first value even though above in 
+# problem four it was not part of the list so that the dictionary could be uniform) 
 five_a = {
-    "8": int,
-    "0.39": float,
-    "12284": int
+    "0": 8,
+    "1": int,
+    "2": 0.39,
+    "3": float,
+    "4": 12284,
+    "5": int
 }
 print("5.a:",five_a)
 
 # 5.b Add 300 and coerce it into a string
-five_b = "300"
-print("5.b",five_b)
+# (here I understood this to make this a new keys and values to 
+# put in the dictionary from 5a, but to note the value type a string)
+five_a["6"] = "300"
+five_a["7"] = "string"
+print("5.b",five_a)
 
 # 5.c append the type to the list
-four_b.append(type(five_b))
+#(here I assumed you meant that you want to add the type that five_a is, which is a dictionary, to the four.b list)
+four_b.append(type(five_a))
 print("5.c:", four_b)
 
 # 5.d slice the string up to the 2nd element
+#(I wasn't sure what you meant by string. Instead I sliced the dictionary up to the 2nd)
 five_d = five_b[:2]
 print ("5.d",five_d)
 
 # 5.e append the type to the list
+#(I assumed you wanted me to take the type of five_d and add to the list from four_b)
 four_b.append(type(five_d))
 print("5.e:", four_b)
 
@@ -179,11 +194,14 @@ five_f = [int(x) for x in five_d]
 print("5.f",five_f)
 
 # 5.g append the type to the list
+#took the type of five_f (a list) and added it to the four_b list
 four_b.append(type(five_f))
 print("5.g:", four_b)
 
 # 5.h append the type of three_setA to the list
+# took the fype of three_setA (a set) and added it to the four_b list
 four_b.append(type(three_setA))
 print("5.h:", four_b)
+
 
 
