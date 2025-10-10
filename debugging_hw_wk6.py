@@ -101,37 +101,32 @@ returns an error message to the user, in case users give invalid inputs,
 is not of the expected type. Please change this and rerun. Name this function 
 exception_add_function()
 '''
-def wrong_add_function(arg1,arg2):
-
+def wrong_add_function(arg1, arg2):
    #numeric section
    if sum([type(i)==int for i in arg1])==len(arg1) and \
       sum([type(i)==int for i in arg2])==len(arg2):
-         arg1_index=0
+         arg1_index = 0
          while arg1_index < len(arg1):
             arg_2_sum = 0
             for arg2_elements in arg2:
-               arg_2_sum = sum([arg1[arg1_index]+i for i in arg2])
-            arg1[arg1_index]=arg_2_sum  
-            arg1_index+=1
+               arg_2_sum = sum([arg1[arg1_index] + i for i in arg2])
+            arg1[arg1_index] = arg_2_sum  
+            arg1_index += 1
          return arg1
+
    #string section
    elif sum([type(i)==str for i in arg1])==len(arg1) and \
       sum([type(i)==str for i in arg2])==len(arg2):
-         arg1_index=0
+         arg1_index = 0
          while arg1_index < len(arg1):
             arg_2_sum = ''
             for arg2_elements in arg2:
                arg_2_sum += arg2_elements
-            arg1[arg1_index]=arg1[arg1_index]+str(arg_2_sum)
-            arg1_index+=1
+            arg1[arg1_index] = arg1[arg1_index] + str(arg_2_sum)
+            arg1_index += 1
          return arg1
-   
-arg_str_1=['1','2','3']
-arg_str_2=['1','1', 1]
 
-wrong_add_function(arg_str_1,arg_str_2)
 
-#create a function that will tell me if one of the inputs was a string
 def exception_add_function(arg1, arg2):
     def first_mismatch(lst):
         if not lst:
@@ -145,23 +140,34 @@ def exception_add_function(arg1, arg2):
     try:
         result = wrong_add_function(arg1, arg2)
         if result is not None:
-            return result  
+            print(result)
+            return
         i1 = first_mismatch(arg1)
         if i1 is not None:
-            return f"Your input argument 1 at element {i1} is not of the expected type. Please change this and rerun."
+            print(f"Your input argument 1 at element {i1} is not of the expected type. Please change this and rerun.")
+            return
         i2 = first_mismatch(arg2)
         if i2 is not None:
-            return f"Your input argument 2 at element {i2} is not of the expected type. Please change this and rerun."
-        return "Your input arguments contain mixed or invalid types. Please correct and rerun."
+            print(f"Your input argument 2 at element {i2} is not of the expected type. Please change this and rerun.")
+            return
+        print("Your input arguments contain mixed or invalid types. Please correct and rerun.")
     except TypeError:
         i1 = first_mismatch(arg1)
         if i1 is not None:
-            return f"Your input argument 1 at element {i1} is not of the expected type. Please change this and rerun."
+            print(f"Your input argument 1 at element {i1} is not of the expected type. Please change this and rerun.")
+            return
         i2 = first_mismatch(arg2)
         if i2 is not None:
-            return f"Your input argument 2 at element {i2} is not of the expected type. Please change this and rerun."
-        return "Your input arguments contain mixed or invalid types. Please correct and rerun."
-print(exception_add_function(arg_str_1, arg_str_2))
+            print(f"Your input argument 2 at element {i2} is not of the expected type. Please change this and rerun.")
+            return
+        print("Your input arguments contain mixed or invalid types. Please correct and rerun.")
+
+
+# test
+arg_str_1 = ['1', '2', '3']
+arg_str_2 = ['1', '1', 1]
+
+exception_add_function(arg_str_1, arg_str_2)
 
 # %%
 '''
